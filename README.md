@@ -6,4 +6,3 @@ I used Python verion 2.7 for all the code in this repository.
 The modules imported in code so far are:
 1. Math
 2. Numpy
-3. Matplotlib
