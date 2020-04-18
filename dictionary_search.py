@@ -9,27 +9,39 @@ def __fib__(n):
 	return num3
 
 def __bisearch__(n, req):
-	q = len(req)
-	for i in range(q):
-		a = len(req)/2
-		if req[a] == n:
+	q = req
+	a = len(q)/2
+	for i in range(len(req)):
+		if q[a] == n:
 			return True
 			break
-		elif req[a] > n:
-			req = req[len(req)/2:len(req)]
+		elif q[a] < n:
+			q = q[len(q)/2:len(q)]
+			a = len(q)/2
 			continue
-		elif req[a] < n:
-			req = req[0:len(req)/2]
+		elif q[a] > n:
+			q = q[0:len(q)/2]
+			a = len(q)/2
 			continue
-		if len(req) == 0:
+		elif len(q) == 0:
 			return False
 			break
 
 p = 1000
-roger = None
 dictionary = []
 
 for i in range(p):
-	dictionary.append(fib(i))
+	dictionary.append(__fib__(i))
 
 print('Welcome to the search program')
+print('A certain dictionary of numbers has been determined')
+query = int(input('Enter the natural number you\'d like checked>>> '))
+if query > __fib__(p):
+	print 'That number is outside the range of the dictionary'
+else:
+	roger = __bisearch__(query, dictionary)
+	
+if roger == True:
+	print 'That number exists in the dictionary :-)'
+else:
+	print 'That number does not exist in the dictionary :\'('
