@@ -34,3 +34,4 @@ for r in range(15):
 	else:
 		print __conv(inp, bas, req)
 		break
+qwe = input('Press enter to continue')
