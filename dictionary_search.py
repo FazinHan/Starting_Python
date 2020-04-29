@@ -18,11 +18,9 @@ def __bisearch__(n, req):
 		elif q[a] < n:
 			q = q[len(q)/2:len(q)]
 			a = len(q)/2
-			continue
 		elif q[a] > n:
 			q = q[0:len(q)/2]
 			a = len(q)/2
-			continue
 		elif len(q) == 0:
 			return False
 			break
