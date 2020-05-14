@@ -16,7 +16,7 @@ def sqrt(a):
 	if a == 1 or a == 0:
 		return a
 	elif a <= 0:
-		print('Error.')
+		raise ValueError('You entered a negative number')
 	else:
 		for i in range(a/2):
 			if i*i == a:

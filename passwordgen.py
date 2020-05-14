@@ -9,10 +9,14 @@ for i in range(leng):
 	pw += chr(k)
 	
 if leng <= 8:
-	print 'This will be a weak password'
+	print('This will be a weak password')
 elif leng > 8 and leng <= 14:
-	print 'This will be a strong password'
+	print('This will be a strong password')
+elif leng >= 100 and leng < 500:
+	print('You\'re crazy. You can\'t possibly remember that')
+elif leng >= 500:
+	print('You son of a gun (or daughter, I hold no biases)')
 else:
-	print 'This will be a very strong password'
+	print('This will be a very strong password')
 	
 pw

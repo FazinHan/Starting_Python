@@ -10,17 +10,17 @@ def __fib__(n):
 
 def __bisearch__(n, req):
 	q = req
-	a = len(q)/2
+	a = len(q)//2
 	for i in range(len(req)):
 		if q[a] == n:
 			return True
 			break
 		elif q[a] < n:
-			q = q[len(q)/2:len(q)]
-			a = len(q)/2
+			q = q[len(q)//2:len(q)]
+			a = len(q)//2
 		elif q[a] > n:
-			q = q[0:len(q)/2]
-			a = len(q)/2
+			q = q[0:len(q)//2]
+			a = len(q)//2
 		elif len(q) == 0:
 			return False
 			break
@@ -35,11 +35,11 @@ print('Welcome to the search program')
 print('A certain dictionary of numbers has been determined')
 query = int(input('Enter the natural number you\'d like checked>>> '))
 if query > __fib__(p):
-	print 'That number is outside the range of the dictionary'
+	print('That number is outside the range of the dictionary')
 else:
 	roger = __bisearch__(query, dictionary)
 	
 if roger == True:
-	print 'That number exists in the dictionary :-)'
+	print('That number exists in the dictionary :-)')
 else:
-	print 'That number does not exist in the dictionary :\'('
+	print('That number does not exist in the dictionary :\'(')

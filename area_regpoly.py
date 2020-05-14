@@ -11,6 +11,6 @@ s_isoceles_angle = math.sin(isoceles_angle)         #sine of isoceles angle
 d = l * (s_isoceles_angle / s_central_angle)        #sine rule
 area = n * (0.5 * (d**2) * s_central_angle)
 
-print area
+print(area)
 
 end = input('Press enter to quit')

@@ -6,4 +6,4 @@ d = [a,b,c]
 d.sort()
 d.reverse()
 print d[0]
-input('Press enter to continue')
+ab = input('Press enter to continue')
