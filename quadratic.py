@@ -16,3 +16,4 @@ if D > 0:
 	x2 = (-b - mt.sqrt(D))/(2*a)
 	print('The roots are real, and are')
 	print(x1, x2)
+x = input('Press enter to continue')
