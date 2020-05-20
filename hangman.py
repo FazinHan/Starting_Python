@@ -5,7 +5,7 @@ _attempts_ = 6                  #number of allowed wrong guesses
 
 import random as rnd
 import time
-def new_word(filename='sowpods.txt'):
+def new_word(filename="sowpods.txt"):
     f = open(filename,'r')
     line = f.readlines()
     f.close()
@@ -16,14 +16,14 @@ time.sleep(0.5)
 name = input('\nPlease enter your name>>>')
 print('\nWelcome to the game', name + '!')
 time.sleep(1)
+print('\nPlease hold on while I set things up...')
+time.sleep(2)
+print('When prompted with ">>>", guess a letter')
+time.sleep(2)
 
 while resume == 1:
-    print('\nPlease hold on while I set things up...')
-    time.sleep(2)
     word = new_word()
     word = word.lower()
-    print('When prompted with ">>>", guess a letter')
-    time.sleep(2)
     print('\nOkay',name+', get ready to guess!')
     time.sleep(2)
     so_far = []
@@ -50,10 +50,15 @@ while resume == 1:
             print(so_far_s)
         else:
             print('That\'s not a part of the word :(')   #wrong guess
+            so_far_s = ''
             for item in so_far:
                 so_far_s += item         #guesses are made a string
             print(so_far_s)
             attempts += 1                #add wroong guess
+        if so_far_s == word:
+            print('CONGRATULATIONS!!! You got it!!!')
+            print('The word was', word)
+            break
         for i in range(turns):
             dots = _attempts_ - attempts    #number of dots
         _dots = ''                      #string of dots
