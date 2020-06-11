@@ -1,6 +1,6 @@
 import numpy as np
 
-def to12hr(x): #converts minutes to time of day
+def to12hr(x): #converts minutes to time of day in 12 hour format
     if x > 1440:
         x -= 1440
     hours = int(x/60)
@@ -12,11 +12,15 @@ def to12hr(x): #converts minutes to time of day
     if hours >= 12:
         hours -= 12
         d = str(hours)
+        if d == '0':
+            d = '12'
         if len(d) == 1:
             d = '0'+d
         return d+':'+a+' p.m.'
     else:
         d = str(hours)
+        if d == '0':
+            d = '12'
         if len(d) == 1:
             d = '0'+d
         return d+':'+a+' a.m.'
@@ -33,17 +37,40 @@ start_time = int(str(input_start_time)[0:-2])*60 + int(str(input_start_time)[-2:
 
 #creates time slots
 times = []
+_id = 1
 ntime = int(start_time)
-while abs(ntime-_stime) > sub_time:
-    times += [to12hr(ntime)+' to '+to12hr(ntime+sub_time)] + [to12hr(ntime+sub_time)+' to '+to12hr(ntime+sub_time+len_break)]
-    ntime += sub_time + len_break
-mtime = _stime + 60
-temp_time = mtime - ntime
-end_time = start_time + temp_time + sub_time*3 + len_break*2
-ntime = mtime
-while ntime < end_time:
-    times += [to12hr(ntime)+' to '+to12hr(ntime+sub_time)] + [to12hr(ntime+sub_time)+' to '+to12hr(ntime+sub_time+len_break)]
-    ntime += sub_time + len_break
+_try = 0
+a_class = 0
+i = 0
+while _try <= 2:
+    if _id == 1:
+        if sub_time <= _stime - ntime:
+            times += [to12hr(ntime)+' to '+to12hr(ntime+sub_time)]
+            ntime += sub_time
+            _id = 0
+            i += 1
+        else:
+            _try += 1
+    elif _id == 0:
+        if len_break <= _stime - ntime:
+            times += [to12hr(ntime)+' to '+to12hr(ntime+len_break)]
+            ntime += len_break
+            _id = 1
+            i += 1
+        else:
+            _try += 1
+ntime += (_stime-ntime) + 60
+while i < 5:
+    if _id == 1:
+        times += [to12hr(ntime)+' to '+to12hr(ntime+sub_time)]
+        ntime += sub_time
+        _id = 0
+        i += 1
+    else:
+        times += [to12hr(ntime)+' to '+to12hr(ntime+len_break)]
+        ntime += len_break
+        _id = 1
+        i += 1
 
 job = []
 i = 0
@@ -56,10 +83,9 @@ while i < 5:
             job += ['Break']
             i += 1
 
-tt = {times[0]:job[0], times[1]:job[1], times[2]:job[2], times[3]:job[3], times[4]:job[4]}
-
 f = open('today.txt','w+')
-for i in range(len(tt)):
-    f.write(times[i]+' '+tt[times[i]])
-    f.write('\n')
+for i in range(len(times)):
+    f.write(times[i]+' '+job[i])
+    if i != len(times)-1:
+        f.write('\n')
 f.close()
