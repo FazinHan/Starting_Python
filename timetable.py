@@ -28,7 +28,7 @@ def to12hr(x): #converts minutes to time of day in 12 hour format
 subs = ['Physics','Chemistry','Math']
 input_start_time = 1500          #in hours (edit this)
 t_time_hrs = 3                   #time of study desired (in hours)
-stime = 1700                     #suspected class timing in hours (edit this) if no class is suspected, set to 2400
+stime = 1630                     #suspected class timing in hours (edit this) if no class is suspected, set to 2400
 t_time = t_time_hrs * 60
 sub_time = int(t_time/3)                    #amount of time per subject (in minutes)
 len_break = int(sub_time/4)                   #amount of time per break (in minutes)
@@ -42,7 +42,7 @@ ntime = int(start_time)
 _try = 0
 a_class = 0
 i = 0
-while _try <= 2:
+while _try <= 2 and i < 5:
     if _id == 1:
         if sub_time <= _stime - ntime:
             times += [[ntime,ntime+sub_time]]
@@ -59,10 +59,11 @@ while _try <= 2:
             i += 1
         else:
             _try += 1
-for j in range(len(times)):
-    times[j][0] += (_stime-ntime)
-    times[j][1] += (_stime-ntime)
-ntime += (_stime-ntime) + 60
+if _try >= 2:
+	for j in range(len(times)):
+		times[j][0] += (_stime-ntime)
+		times[j][1] += (_stime-ntime)
+	ntime += (_stime-ntime) + 60
 while i < 5:
     if _id == 1:
         times += [[ntime,ntime+sub_time]]
