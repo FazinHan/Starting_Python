@@ -1,6 +1,7 @@
 import random
 
 print('Welcome to the password generator.')
+print('WARNING: UNSUITABLE FOR USE AS A SOURCE OF SECURE PASSWORDS \nDUE TO PSEUDO-RANDOM NUMBER GENERATOR USED')
 leng = int(input('Enter the desired length for a password>>> '))
 pw = ''
 
