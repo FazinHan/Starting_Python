@@ -25,7 +25,7 @@ elif a == 0:
 		X = np.linspace(-y1[0],-y1[-1],2)
 else:
     X = np.linspace(y1[0],-y1[0],2)
-y = np.linspace(0,0,2)
+y = np.zeros(2)
 
 if a != 0:
     if D == 0:
@@ -45,4 +45,5 @@ else:
 plt.plot(X,y,color='grey')		#plots x axis
 plt.plot(y,X,color='grey')		#plots y axis
 plt.plot(x,y1,color='magenta')
+plt.grid(True)
 plt.show()
