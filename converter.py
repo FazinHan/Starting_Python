@@ -1,37 +1,41 @@
-def __conv(a, b, n):
-	a = str(a)
-	s = int(a, b)
-	if n == 10:
-		return s
-	else:	
-		res = []
-		p = ''
-		d = s 
-		while d > 0:
-			e = d%n
-			d //= n
-			if e > 9:
-				e += 55
-				e = chr(e)
-				res += [e]
-			else:
-				res += [e]
-		res.reverse()
-		for j in range(len(res)):
-			p += str(res[j])
-		return p
+class conv:
+    '''A simple base converter
+    program.'''
+    def __init__(self, string, numBase, reqBase):
+        if type(string) != str:
+            raise ValueError('Cannot convert non-string type numbers')
+        self.ibase = numBase
+        self.fbase = reqBase
+        self.input = string
+        self.final = self.conv()
+        
+    def __str__(self):
+        return '%s'%self.final
+    
+    def __repr__(self):
+        return 'Converted(%s to %s, bases %s to %s)'%(self.input,self.final,self.ibase,self.fbase)
 
-for r in range(15):
-	print('I convert numbers into different forms')
-	inp = str(input('Please enter the number you want converted>>> '))
-	bas = int(input('Please enter the base of the number entered>>> '))
-	req = int(input('Enter the base you want it converted to:\n(between 2 and 90, and 0 to re-enter values)>>> '))
-	if (req < 2 or req > 90) and req != 0:
-		print('Please recheck the desired base')
-		break
-	elif req == 0:
-		pseudo = 1
-	else:
-		print(__conv(inp, bas, req))
-		break
-qwe = input('Press enter to continue')
+    def conv(self):
+        '''The main method that takes care of
+        the conversion.'''
+        s = int(self.input, self.ibase)
+        n = self.fbase
+        if n == 10:
+            return s
+        else:
+            res = []
+            p = ''
+            d = s 
+            while d > 0:
+                e = d%n
+                d //= n
+                if e > 9:
+                    e += 55
+                    e = chr(e)
+                    res.append(e)
+                else:
+                    res.append(e)
+            res.reverse()
+            for j in res:
+                p += str(j)
+            return p
