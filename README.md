@@ -5,15 +5,6 @@ I used Python version 3.8 for all the code in this repository. `launcher.py ` di
 
 ---
 
-The modules imported in code so far are:
-1. Math
-2. Numpy
-3. Random
-4. Matplotlib
-5. os
-
----
-
 For help with installing python, check out the [documentation](https://docs.python.org/3/installing/index.html) here.
 
 ---
