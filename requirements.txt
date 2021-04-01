@@ -60,7 +60,7 @@ protobuf==3.13.0
 pycairo @ file:///C:/Users/freak/pycairo-1.19.1-cp38-cp38-win_amd64.whl
 pycparser==2.20
 pydub==0.24.1
-Pygments==2.6.1
+Pygments==2.7.4
 PyInstaller==3.6
 PyJWT==1.7.1
 pyparsing==2.4.7
