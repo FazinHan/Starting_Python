@@ -57,7 +57,7 @@ progressbar==2.5
 prometheus-client==0.7.1
 prompt-toolkit==3.0.5
 protobuf==3.13.0
-pycairo @ file:///C:/Users/freak/pycairo-1.19.1-cp38-cp38-win_amd64.whl
+pycairo==1.20.0
 pycparser==2.20
 pydub==0.24.1
 Pygments==2.7.4
