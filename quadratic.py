@@ -3,9 +3,9 @@ import numpy as np
 
 print('Quadratic solver')
 print('Of the form ax^2+bx+c=0')
-a = int(input('Please input a>>>'))
-b = int(input('Please input b>>>'))
-c = int(input('Please input c>>>'))
+a = eval(input('Please input a>>>'))
+b = eval(input('Please input b>>>'))
+c = eval(input('Please input c>>>'))
 D = b**2 - (4*a*c)
 
 if a != 0:
