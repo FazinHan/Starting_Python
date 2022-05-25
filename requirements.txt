@@ -61,7 +61,7 @@ pycparser==2.20
 pydub==0.24.1
 Pygments==2.7.4
 PyInstaller==3.6
-PyJWT==1.7.1
+PyJWT==2.4.0
 pyparsing==2.4.7
 pyPdf==1.13
 pyreadline==2.1
